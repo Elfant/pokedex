@@ -1,6 +1,6 @@
 const fetch = require("node-fetch");
 
-const getPokemonDetails = async (url) => {
+const getPokemonDetails = async (url, nextUrl) => {
   const response = await fetch(url);
   const data = await response.json();
   let optionalNature;
@@ -11,9 +11,11 @@ const getPokemonDetails = async (url) => {
   }
 
   return {
+    id: data.id,
     name: data.name,
     firstNature: data.types[0].type.name,
-    secondNature: optionalNature
+    secondNature: optionalNature,
+    url: nextUrl
   }
 }
 

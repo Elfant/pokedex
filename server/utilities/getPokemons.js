@@ -1,11 +1,9 @@
 const fetch = require("node-fetch");
 
-const urlApi = "https://pokeapi.co/api/v2/pokemon?limit=10";
-
-const getPokemons = async () => {
-  const response = await fetch(urlApi);
+const getPokemons = async (url) => {
+  const response = await fetch(url);
   const data = await response.json();
-  return data.results;
+  return data;
 };
 
 module.exports = getPokemons;

@@ -1,0 +1,42 @@
+.card {
+  background: #2c4382;
+  width: 290px;
+  height: 300px;
+  margin: 10px auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  border-radius: 5px;
+}
+
+.cardHeader {
+  flex: 1;
+  margin-top: 0;
+  padding-left: 10px;
+  background: #dc4190;
+  text-transform: capitalize;
+  color: white;
+  padding-top: 5px;
+  border-radius: 5px 5px 0 0;
+}
+
+.cardDesc {
+  flex-basis: 100%;
+  padding-left: 10px;
+}
+
+.cardDescNature {
+  background-color: red;
+  padding: 5px;
+  text-transform: uppercase;
+  font-weight: bold;
+  margin-right: 10px;
+  background: #d81e1e;
+  color: white;
+  display: inline-block;
+}
+.cardImg {
+  width: 250px;
+  height: 200px;
+}
+
