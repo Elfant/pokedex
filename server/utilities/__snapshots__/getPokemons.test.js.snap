@@ -1,0 +1,51 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`It should connect to api and return data 1`] = `
+Object {
+  "count": 964,
+  "next": "https://pokeapi.co/api/v2/pokemon?offset=10&limit=10",
+  "previous": null,
+  "results": Array [
+    Object {
+      "name": "bulbasaur",
+      "url": "https://pokeapi.co/api/v2/pokemon/1/",
+    },
+    Object {
+      "name": "ivysaur",
+      "url": "https://pokeapi.co/api/v2/pokemon/2/",
+    },
+    Object {
+      "name": "venusaur",
+      "url": "https://pokeapi.co/api/v2/pokemon/3/",
+    },
+    Object {
+      "name": "charmander",
+      "url": "https://pokeapi.co/api/v2/pokemon/4/",
+    },
+    Object {
+      "name": "charmeleon",
+      "url": "https://pokeapi.co/api/v2/pokemon/5/",
+    },
+    Object {
+      "name": "charizard",
+      "url": "https://pokeapi.co/api/v2/pokemon/6/",
+    },
+    Object {
+      "name": "squirtle",
+      "url": "https://pokeapi.co/api/v2/pokemon/7/",
+    },
+    Object {
+      "name": "wartortle",
+      "url": "https://pokeapi.co/api/v2/pokemon/8/",
+    },
+    Object {
+      "name": "blastoise",
+      "url": "https://pokeapi.co/api/v2/pokemon/9/",
+    },
+    Object {
+      "name": "caterpie",
+      "url": "https://pokeapi.co/api/v2/pokemon/10/",
+    },
+  ],
+}
+`;
