@@ -42,15 +42,13 @@ module.exports = {
       },
 
       {
-        test: /\.scss$/i,
-        use: [MiniCssExtractPlugin.loader, 'css-loader'],
-      },
-
-      {
         test: /\.(png|jpe?g)$/i,
         use: [
           {
             loader: 'file-loader',
+            options: {
+              name: '[name].[contenthash:5].[ext]',
+            },
           },
         ],
       },

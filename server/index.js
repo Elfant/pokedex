@@ -13,9 +13,6 @@ const publicDirectoryPath = path.join(__dirname, "../build");
 app.use(express.static(publicDirectoryPath));
 
 app.get("/pokemons", (req, resp) => {
-  
-  console.log(req.query.nexturl) 
-
   joinData(req.query.nexturl)
     .then(pokemons => {
       resp.send(

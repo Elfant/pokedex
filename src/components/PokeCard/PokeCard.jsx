@@ -8,7 +8,11 @@ const PokeCard = ({name, firstNature, imgSrc, secondNature}) => {
       <img src={imgSrc} className="cardImg" alt="not found"/>   
       <div className="cardDesc">
         <span className="cardDescNature">{firstNature}</span>
-        {secondNature ? <span className="cardDescNature">{secondNature}</span> : null}
+        {
+          secondNature ?
+            <span className="cardDescNature">{secondNature}</span>
+            : null
+        }
       </div>
     </div>
   )
