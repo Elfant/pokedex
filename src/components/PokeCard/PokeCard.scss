@@ -1,34 +1,35 @@
+@import "../scss/variables.scss";
+
 .card {
   background: #2c4382;
   width: 290px;
   height: 300px;
-  margin: 10px 15px;
+  margin: $spacing-x2 $spacing-x3;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  border-radius: 5px;
+  border-radius: $spacing-x1;
 
   &Header {
     flex: 1;
     margin-top: 0;
-    padding-left: 10px;
+    padding-left: $spacing-x2;
     background: #dc4190;
     text-transform: capitalize;
     color: white;
-    padding-top: 5px;
-    border-radius: 5px 5px 0 0;
+    padding-top: $spacing-x1;
+    border-radius: $spacing-x1 $spacing-x1 0 0;
   }
 
   &Desc {
     flex-basis: 100%;
-    padding-left: 10px;
+    padding-left: $spacing-x2;
     
     &Nature {
-      background-color: red;
-      padding: 5px;
+      padding: $spacing-x1;
       text-transform: uppercase;
       font-weight: bold;
-      margin-right: 10px;
+      margin-right: $spacing-x2;
       background: #d81e1e;
       color: white;
       display: inline-block;
