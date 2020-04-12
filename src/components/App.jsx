@@ -5,7 +5,7 @@ import "./scss/main.scss";
 import img from "../images/pokeball.png";
 
 import PokeCard from "../components/PokeCard/PokeCard.jsx";
-import SelectOption from "../components/SelectOption/SelectOption.jsx";
+import SelectOptionItem from "../components/SelectOption/SelectOptionItem.jsx";
 
 import pokemonTypes from "../data/pokemonTypes";
 
@@ -13,13 +13,17 @@ const App = () => {
   const [pokemons, setPokemons ] = useState([]);
   const [filteredPokemons, setFiltred] = useState([])
 
-  const showNextPokemons = () => {
-    const pokemonsArrayLength = pokemons.length - 1;
+  useEffect(() => {
+    fetch("/pokemons")
+      .then(res => res.json())
+      .then(data => {
+        setPokemons(data);
+    });
+  }, []);
 
-    fetch(`/pokemons?nexturl=${pokemons[pokemonsArrayLength].url}`)
-    .then(response => response.json())
-    .then(data => setPokemons((pokemons) =>[...pokemons, ...data.pokemons]))
-  };
+  useEffect(() => {
+    setFiltred([])
+  },[pokemons.length]);
 
   const renderListOfPokemons = (elements) => (
     elements.map((element) => (
@@ -33,35 +37,31 @@ const App = () => {
     ))
   );
 
-  useEffect(() => {
-    fetch("/pokemons")
-      .then(res => res.json())
-      .then(data => {
-        setPokemons(data.pokemons)
-    })
-  }, []);
+  const showNextPokemons = () => {
+    const pokemonsArrayLength = pokemons.length - 1;
 
-  useEffect(() => {
-    setFiltred([])
-  },[pokemons.length])
-
-  const scroolToTheTop = () => {
-    window.scrollTo(0, 0)
-  }
+    fetch(`/pokemons?nexturl=${pokemons[pokemonsArrayLength].url}`)
+    .then(response => response.json())
+    .then(data => setPokemons((pokemons) =>[...pokemons, ...data]));
+  };
 
   const filterPokemons = (event) => {
     if (event.target.value === "all") {
-      return setFiltred([])
-    }
+      return setFiltred([]);
+    };
 
     const pokemonType = event.target.value;
     const filtered = [...pokemons].filter((element) => element.firstNature === pokemonType || element.secondNature === pokemonType );
 
-    setFiltred(filtered)
+    setFiltred(filtered);
 
     event.target.value = "pokemons"
-  }
+  };
   
+  const scrollToTheTop = () => {
+    window.scrollTo(0, 0);
+  };
+
   return (
     <div className="container">
       <div className="header">
@@ -72,7 +72,7 @@ const App = () => {
           <select className="selectOption" onChange={(event) => filterPokemons(event)}>
             {
               pokemonTypes.map((element, i) => 
-                <SelectOption name = {element} key ={i}/>
+                <SelectOptionItem name = {element} key ={i}/>
               )
             }
           </select>
@@ -86,7 +86,7 @@ const App = () => {
         <button className="navBarBtn" onClick={() => showNextPokemons()}>
           Show me more Pokemons!
         </button>
-        <button className="navBarScroolBtn" onClick={() => scroolToTheTop()}>
+        <button className="navBarScroolBtn" onClick={() => scrollToTheTop()}>
           >
         </button>
       </div>

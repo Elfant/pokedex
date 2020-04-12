@@ -15,18 +15,14 @@ app.use(express.static(publicDirectoryPath));
 app.get("/pokemons", (req, resp) => {
   joinData(req.query.nexturl)
     .then(pokemons => {
-      resp.send(
-        {
-          pokemons
-        }
-      )
-    })
-})
+      resp.send(pokemons);
+    });
+});
 
 app.get("*", (req, resp) => {
-  resp.sendFile(publicDirectoryPath)
-})
+  resp.sendFile(publicDirectoryPath);
+});
 
 app.listen(port, () => 
   console.log(`Server is up on ${port}`)
-)
+);

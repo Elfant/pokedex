@@ -4,11 +4,12 @@ const getPokemonDetails = async (url, nextUrl) => {
   const response = await fetch(url);
   const data = await response.json();
   let optionalNature;
+
   try {
     optionalNature = data.types[1].type.name
   } catch {
-      optionalNature = null
-  }
+      optionalNature = null;
+  };
 
   return {
     id: data.id,
@@ -17,6 +18,6 @@ const getPokemonDetails = async (url, nextUrl) => {
     secondNature: optionalNature,
     url: nextUrl
   }
-}
+};
 
-module.exports = getPokemonDetails
+module.exports = getPokemonDetails;
